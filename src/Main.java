@@ -15,6 +15,14 @@ public class Main {
 		if (price >= paidAmount) {
 			System.out.println("Not Enough Money");
 		}
+		//As a bonus, make your project round to the nearest $0.05 like actual stores.
+		int lastDigit = (int) ((change*100)%10);
+		if (lastDigit==1 || lastDigit==2) {
+			change = change + (lastDigit/100.0);
+		}
+		if (lastDigit==3 || lastDigit==4) {
+			change = change + (( 5-lastDigit)/100.0);
+		}
 		//Break the change into all denominations: 
 		//$100
 		if (change / 100 >=1) {
@@ -85,14 +93,6 @@ public class Main {
 			int Nickels = (int)(change/0.05);
 			System.out.println("# of Nickels:"+Nickels);
 			change = change-Nickels*0.05;	 
-		}
-		//As a bonus, make your project round to the nearest $0.05 like actual stores.
-		int lastDigit = (int) ((change*100)%10);
-		if (lastDigit==1 || lastDigit==2) {
-			change = change + (lastDigit/100.0);
-		}
-		if (lastDigit==3 || lastDigit==4) {
-			change = change + (( 5-lastDigit)/100.0);
 		}
 	}
 
